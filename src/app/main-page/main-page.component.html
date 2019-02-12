@@ -1,0 +1,9 @@
+<app-top-menu 
+  [sources]="sources" 
+  [isMyServer] = "state && state.isMyServer"
+  (updateSource)='onSourceUpdate($event)' 
+  (switchNewsServer)='onServerChange($event)'
+  (filter)='updateFilter($event)'
+></app-top-menu>
+<app-article *ngFor="let article of articles | keyWordFilter: keyWord; let i = index" [id]="i" [article]="article" (onArticleDeleted)="getMyNews()"></app-article>
+<div class="load-button cursor-pointer" (click)="getMoreNews()" *ngIf="state && !state.isMyServer">LOAD MORE</div>

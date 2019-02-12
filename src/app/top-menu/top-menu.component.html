@@ -1,0 +1,15 @@
+<div class="control-panel">
+  <select [disabled]="isMyServer" class="source-select cursor-pointer" (change)="handleSourceSelect($event)">
+    <option value="" disabled selected hidden>Select source</option>
+    <option *ngFor="let source of sources" [value]="source.id">{{source.name}}</option>
+  </select>
+  <div class="filter-conteiner">
+    <input class="filter-input" type="text" placeholder="Type your text..." [formControl]="keyWord">
+    <button class="filter-button cursor-pointer" (click)="hangleFilterButton()">Filter</button>
+  </div>
+  <div class="server-switch-container">
+    <input id="server-switch" type="checkbox" class="server-switch-checkbox cursor-pointer" (change)="onCheckChange($event)" [checked]="isMyServer">
+    <label for="server-switch" class="cursor-pointer">Only created by me</label>
+  </div>
+  <button class="add-article-button cursor-pointer" (click)="goToCreatePage()">Add Article</button>
+</div>

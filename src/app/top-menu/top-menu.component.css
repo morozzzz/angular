@@ -1,0 +1,33 @@
+.control-panel {
+    display: flex;
+    width: 80%;
+    justify-content: space-between; 
+    font-size: 1em;
+    margin: 1em auto;
+    margin-bottom: 2em;
+}
+
+.source-select {
+    width: 16%;
+}
+
+.filter-conteiner {
+    width: 20%; 
+    display: flex;     
+}
+
+.server-switch-container {
+    width: 22%;    
+}
+
+.add-article-button {
+    width: 14%;
+}
+
+.filter-input {
+    width: 70%;
+}
+
+.filter-button {
+    width: 30%;
+}

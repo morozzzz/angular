@@ -1,0 +1,37 @@
+<div class="edit-form-container" [formGroup]="editForm">
+  <div class="edit-form-row">
+    <label>Heading</label>
+    <input id="heading" type="text" formControlName="heading">
+    <label>Short description</label>
+    <input id="description" type="text" formControlName="description">
+    <label>Content</label>
+    <textarea id="content" class="form-content" formControlName="content"></textarea>
+  </div>
+  <div class="edit-form-row">
+    <div>
+      <label>Image</label>
+      <div class="radio-container">
+        <input type="radio" name="img-source" id="url-source-radio" checked>
+        <label class="cursor-pointer" for="url-source-radio">URL</label>
+        <input class="cursor-pointer" type="radio" name="img-source" id="file-source-radio">
+        <label class="cursor-pointer" for="file-source-radio">File</label>
+      </div>
+    </div>    
+    <div class="form-img-container">
+      <input id="image" type="url" formControlName="imageUrl">
+    <div class="sample-container">
+      <img class="sample" [src]="editForm.get('imageUrl').value">
+    </div>
+    </div>
+    <label>Date</label>
+    <input id="date" type="text" formControlName="date">
+    <label>Autor</label>
+    <input id="author" type="text" formControlName="author">
+    <label>Source URL</label>
+    <input id="source-url" type="text" formControlName="sourceUrl">
+    <div class="form-buttons-container">
+      <button class="cursor-pointer" [disabled]="!editForm.valid" (click)="onSave()">Save</button>
+      <button class="cursor-pointer" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div [ngClass]="{'full-article':isFullArticle}" class="article-container" (click)="goToDetailPage($event)">
+  <div [ngClass]="{
+    'img-container':!isFullArticle,
+    'full-aimg-container':isFullArticles
+  }">
+      <img class="article-img" src={{article.urlToImage}} alt="image">
+  </div>
+  <div [ngClass]="{'full-primary-data':isFullArticle}" class="primary-data">
+    <h3 [ngClass]="{'full-article-header':isFullArticle}" class="article-header">{{article.title}}</h3>
+    <p *ngIf="!isFullArticle">{{article.description | trancate: [descriptionWordLimit]}}</p>
+    <p *ngIf="isFullArticle">{{article.content}}</p>
+  </div>
+  <div [ngClass]="{
+    'full-secodary-data':isFullArticle,
+    'secodary-data':!isFullArticle
+  }">
+    <div>{{article.publishedAt | date: 'medium'}}</div>
+    <div *ngIf="isFullArticle">{{article.author}}</div>
+  </div>
+  <div *ngIf="isMyArticle" class="interactive-container">
+    <button class="cursor-pointer" (click)="goToEditPage($event)">Edit</button>
+    <button class="cursor-pointer" (click)="deleteArticle()">Delete</button>
+  </div>
+</div>
